@@ -1,0 +1,34 @@
+{% extends "frontend/index.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block contfluid %}
+<div class="container-fluid">
+    <!-- Page Form -->
+    <div class="row">
+        <div class="col-lg-6">
+            <!-- Default Card Form -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    Création du z'Vitaé
+                </div>
+                <div class="card-body">
+                    <form method="post" action=".">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div class="form-group">
+                                {{ field.name }}
+
+                                {% render_field field|remove_attr:'required' class+="mt form-control" placeholder=field.label %}
+
+                            </div>
+                        {% endfor %}
+                        {{ zvitae_link_cs }}
+                        <input type='hidden' id="zvitae_link_cs_id" name="zvitae_link_cs_id" value="{{ zvitae_link_cs }}" />
+                        <input class="mt-4 btn-submit-home btn btn-primary btn-sx" type="submit" value="Sauvegarder" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock contfluid %}

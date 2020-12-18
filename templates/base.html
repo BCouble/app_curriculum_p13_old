@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "_head.html" %}
+    {% block head %}{% endblock %}
+    <title>{% block title %}Z'Vitaé - Home{% endblock %}</title>
+</head>
+    <body id="page-top">
+        {% block menu %}{% endblock menu %}
+        {% block header %}{% endblock header %}
+        {% block content %}
+            {% block contfluid %}{% endblock contfluid %}
+        {% endblock content %}
+        {% block footer %}{% endblock footer %}
+        {% block scripts %}{% endblock scripts %}
+        {% block extrascripts %}{% endblock extrascripts %}
+    </body>
+</html>

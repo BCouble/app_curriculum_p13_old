@@ -1,0 +1,72 @@
+{% if address %}
+    {% for field in address %}
+        {{ field.number }}
+        {{ field.address }}
+        {{ field.address2 }}
+        </br>
+        {{ field.city }}
+        </br>
+        {{ field.postal_code }}
+        </br>
+            <a href="{% url 'zvitae:address-up' field.id %}" class="btn btn-warning btn-icon-split">
+                <span class="icon text-white-50">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </span>
+                <span class="text">Modifier</span>
+            </a>
+            <a href="{% url 'zvitae:address-delete' field.id %}" class="btn btn-danger btn-icon-split">
+                <span class="icon text-white-50">
+                <i class="fas fa-trash"></i>
+                </span>
+                <span class="text">Supprimer</span>
+            </a>
+    </br></br>
+    {% endfor %}
+    {% if cstate %}
+        {% for field in cstate %}
+            Age : {{ field.age }}
+            </br>Prénom : {{ field.first_name }}
+            </br>Nom : {{ field.last_name }}
+            </br>Téléphone : {{ field.phone }}
+            </br>LinkedIn : {{ field.linkedin }}
+            </br>Emial : {{ field.email }}
+            </br>Permis : {{ field.driving_licence }}
+        </br>
+                <a href="{% url 'zvitae:cstate-up' field.id %}" class="btn btn-warning btn-icon-split">
+                    <span class="icon text-white-50">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </span>
+                    <span class="text">Modifier</span>
+                </a>
+                <a href="{% url 'zvitae:cstate-delete' field.id %}" class="btn btn-danger btn-icon-split">
+                    <span class="icon text-white-50">
+                    <i class="fas fa-trash"></i>
+                    </span>
+                    <span class="text">Supprimer</span>
+                </a>
+        </br></br>
+        {% endfor %}
+    {% else %}
+        <div class="alert alert-warning">Vous devez renseigner l'état civil !</div>
+        <div class="float-right">
+            <a href="{% url 'zvitae:cstate-add' %}" class="btn btn-success btn-icon-split">
+                <span class="icon text-white-50">
+                    <i class="fas fa-plus"></i>
+                </span>
+                <span class="text">Créer état-civil</span>
+            </a>
+        </div>
+    {% endif %}
+{% else %}
+    <div class="alert alert-warning">Vous devez renseigner une adresse !</div>
+        <a href="{% url 'zvitae:address-add' %}" class="btn btn-success btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="fas fa-plus"></i>
+            </span>
+            <span class="text">Créer adresse</span>
+        </a>
+{% endif %}
+{% if cv %}
+<div class="alert alert-warning">{{ cv }}</div>
+{% endif %}
+

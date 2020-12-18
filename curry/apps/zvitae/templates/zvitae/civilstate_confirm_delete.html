@@ -1,0 +1,30 @@
+{% extends "frontend/index.html" %}
+{% load static %}
+{% block contfluid %}
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Formulaire Z'Vitaé</h1>
+    </div>
+
+
+    <!-- Page Form -->
+    <div class="row">
+        <div class="col-lg-6">
+            {% if cstate %}
+                <div class="alert alert-warning">{{ cstate }}
+                    <h1>Supprimer l'état civil</h1>
+                    <p>Etes-vous sur de vouloir supprimer l'état civil: {{ zvitae }}?</p>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <input type="submit" action="" value="Yes, delete." />
+                    </form>
+                </div>
+            {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock contfluid %}

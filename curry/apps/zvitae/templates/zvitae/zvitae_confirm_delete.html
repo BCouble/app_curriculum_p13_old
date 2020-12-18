@@ -1,0 +1,39 @@
+{% extends "frontend/index.html" %}
+{% load static %}
+{% block contfluid %}
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Formulaire Z'Vitaé</h1>
+    </div>
+
+
+    <!-- Page Form -->
+    <div class="row">
+        <div class="col-lg-6">
+            {% if cv %}
+                <div class="alert alert-warning">{{ zvitae }}</div>
+            {% endif %}
+            <!-- Default Card Form -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    Le titre et la description
+                </div>
+                <div class="card-body">
+
+                    <h1>Delete Z'Vitaé</h1>
+
+                    <p>Are you sure you want to delete the Z'Vitaé: {{ zvitae }}?</p>
+
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <input type="submit" action="" value="Yes, delete." />
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock contfluid %}

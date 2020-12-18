@@ -1,0 +1,38 @@
+{% extends "frontend/index.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block contfluid %}
+<div class="container-fluid">
+
+    <!-- Page Form -->
+    <div class="row">
+        <div class="col-lg-6">
+            <!-- Default Card Form -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    Création de l'adresse
+                </div>
+                <div class="card-body">
+
+                    <form method="post" action=".">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div class="form-group">
+                                {{ field.name }}
+                                {% if field.name == address2 %}
+                                {% render_field field|remove_attr:'required' class+="mt form-control" placeholder=field.label %}
+                                {% else %}
+                                {% render_field field class+="mt form-control" placeholder=field.label %}
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                        <input type='hidden' id="zvitae_link_add" name="zvitae_link_add" value="{{ zvitae_link_add }}" />
+                        <input class="mt-4 btn-submit-home btn btn-primary btn-sx" type="submit" value="Sauvegarder" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock contfluid %}

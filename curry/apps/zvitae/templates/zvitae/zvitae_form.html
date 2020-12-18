@@ -1,0 +1,21 @@
+{% extends "frontend/index.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block contfluid %}
+
+<div class="card-header">
+    Création du Curriculum
+</div>
+<div class="card-body">
+    <form method="post" action=".">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-group">
+                {% render_field field class+="mt form-control" placeholder=field.label %}
+            </div>
+        {% endfor %}
+        <input class="mt-4 btn-submit-home btn btn-primary btn-sx" type="submit" value="Sauvegarder" />
+    </form>
+</div>
+
+{% endblock contfluid %}

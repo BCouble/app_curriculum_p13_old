@@ -1,0 +1,22 @@
+{% extends "frontend/index.html" %}
+{% load static %}
+{% block contfluid %}
+<div class="container-fluid">
+    <!-- Page Form -->
+    <div class="row">
+        <div class="col-lg-6">
+            <!-- Default Card Form -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <p>Voulez-vous vraiment suprimer cette l'adresse !</p>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Oui, suprimer !</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock contfluid %}
